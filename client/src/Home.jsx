@@ -25,8 +25,11 @@ function Home() {
         </p>
 
         <div className="button-group">
-          <button onClick={() => navigate("/login")} className="btn login-btn">
-            Scan
+          <button
+            onClick={() => navigate("/scanner")}
+            className="btn login-btn"
+          >
+            Virus Scan
           </button>
 
           <button

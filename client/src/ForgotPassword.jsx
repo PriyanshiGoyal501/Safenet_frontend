@@ -5,9 +5,9 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 
-function Login() {
+function ForgotPassword() {
   const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+
   const navigate = useNavigate();
 
   axios.defaults.withCredentials = true;
@@ -15,18 +15,18 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3001/login", { email, password })
+      .post("http://localhost:3001/forgot-password", { email })
       .then((result) => {
         console.log(result);
         if (result.data === "Success") {
-          navigate("/home");
+          navigate("/login");
         }
       })
       .catch((err) => console.log(err));
   };
   return (
     <div className="container">
-      <h2>Login</h2>
+      <h2>Forgot Password</h2>
 
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
@@ -41,33 +41,12 @@ function Login() {
           />
         </div>
 
-        <div className="mb-3">
-          <label className="form-label">Password</label>
-          <input
-            type="password"
-            name="password"
-            className="form-control"
-            placeholder="Enter your password"
-            autoComplete="off"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-
         <button type="submit" className="btn btn-primary w-100">
-          Login
+          Send
         </button>
-        <p>Don't have an account?</p>
-        <br></br>
-        <Link to="/forgot-password">Forgot Password</Link>
-        <Link
-          to="/register"
-          className="btn btn-light w-100 rounded-0 text-decoration-none"
-        >
-          Register
-        </Link>
       </form>
     </div>
   );
 }
 
-export default Login;
+export default ForgotPassword;

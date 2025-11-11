@@ -6,8 +6,9 @@ import Home from "./Home";
 import MainHome from "./mainHome";
 import ForgotPassword from "./ForgotPassword";
 import ResetPassword from "./ResetPassword";
-import Scanner from "./Scanner";
+import MalwareScanner from "./components/MalwareScanner/MalwareScanner";
 
+// import Profile from "./Profile";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   return (
@@ -22,7 +23,8 @@ function App() {
           path="/reset-password/:id/:token"
           element={<ResetPassword />}
         ></Route>
-        <Route path="/scanner" element={<Scanner />} />
+        <Route path="/scanner" element={<MalwareScanner />} />
+        {/* <Route path="/profile" element={<Profile />} /> */}
       </Routes>
     </BrowserRouter>
   );

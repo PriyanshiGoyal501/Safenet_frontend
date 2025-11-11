@@ -6,6 +6,7 @@ function MainHome() {
   const navigate = useNavigate();
 
   return (
+    
     <div className="home-wrapper">
       <div className="home-content">
         <h1 className="home-title">
